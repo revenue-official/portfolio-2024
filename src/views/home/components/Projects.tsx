@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { LayoutGrid } from "@/components/Icon/DefaultIcon";
 import { ProjectsProps } from "@/types/projects";
 import Title from "./Title";

@@ -1,6 +1,6 @@
 // Import tipe untuk proyek.
 import { ProjectsProps } from "@/types/projects";
-import { supabase } from "@/utils/supabase/server";
+import { supabase } from "@/utils/supabase/client";
 
 // Fungsi asinkron untuk mengambil data dari URL.
 export async function getProjectsData(): Promise<ProjectsProps[]> {
