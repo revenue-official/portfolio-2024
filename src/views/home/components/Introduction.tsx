@@ -2,7 +2,7 @@ import dynamic from "next/dynamic";
 import TypingAnimation from "@/components/Elements/TypingAnimation";
 
 export default function Introduction() {
-    const phrases = ["Hello, I'm ", "Teguh Ersyarudin", "Software Engineer", "Fullstack Developer"];
+    const phrases = ["Hello, I'm ", "Teguh Ersyarudin", "Fullstack Developer"];
     const nonDeletableIndices = [0];
     return (
         <section className="flex flex-col">
@@ -13,10 +13,10 @@ export default function Introduction() {
                 delayAfterTyping={3000}
                 delayAfterDeleting={3000}
                 nonDeletableIndices={nonDeletableIndices}
-                className="pt-10 pb-2 text-3xl font-bold text-black font-poppins dark:text-white"
+                className="h-24 pt-10 pb-2 text-xl font-bold text-black md:text-3xl font-poppins dark:text-white"
             />
             <div className="flex mb-4 h-fit">
-                <ul className="inline-flex gap-4 list-disc list-inside font-comfortaa">
+                <ul className="block gap-4 list-disc list-inside md:flex font-comfortaa">
                     {/* betikan dot/bulatan  */}
                     <li className="text-sm font-medium font-poppins text-neutral-600 dark:text-neutral-400">IT student</li>
                     <li className="text-sm font-medium font-poppins text-neutral-600 dark:text-neutral-400">Based in Indonesia</li>

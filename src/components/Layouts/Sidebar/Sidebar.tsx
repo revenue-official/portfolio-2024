@@ -16,7 +16,7 @@ import {
 
 export default function Sidebar() {
     return (
-        <aside className="w-64 h-screen shadow-md">
+        <aside className="absolute hidden w-64 h-screen shadow-md">
             <div className="flex flex-col justify-around h-full px-4 overflow-hidden bg-light-100 dark:bg-dark-100">
                 {/* mini side */}
                 <div className="flex flex-col w-full h-full">
