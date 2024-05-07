@@ -20,13 +20,23 @@ const config = {
         },
         extend: {
             fontFamily: {
-                comfortaa: ['Comfortaa', 'cursive'], // Font Comfortaa
-                mateSC: ['Mate SC', 'serif'], // Font Mate SC
-                oswald: ['Oswald', 'sans-serif'], // Font Oswald
-                quicksand: ['Quicksand', 'sans-serif'], // Font Quicksand
-                rubikMonoOne: ['Rubik Mono One', 'sans-serif'], // Font Rubik Mono One
+                oswald: ["Oswald", "sans-serif"],
+                bebas: ["Bebas Neue", "cursive"],
+                quicksand: ["Quicksand", "sans-serif"],
+                poppins: ["Poppins", "sans-serif"],
+                roboto: ["Roboto", "sans-serif"],
+                rubik: ["Rubik Mono One", "sans-serif"],
             },
             colors: {
+                dark: {
+                    50: "#0b0b0d",
+                    100: "#121214"
+                },
+                light: {
+                    50: "#f0f0f0",
+                    100: "#fdfdfd"
+                },
+
                 border: "hsl(var(--border))",
                 input: "hsl(var(--input))",
                 ring: "hsl(var(--ring))",
@@ -36,32 +46,26 @@ const config = {
                     DEFAULT: "hsl(var(--primary))",
                     foreground: "hsl(var(--primary-foreground))",
                 },
-
                 secondary: {
                     DEFAULT: "hsl(var(--secondary))",
                     foreground: "hsl(var(--secondary-foreground))",
                 },
-
                 destructive: {
                     DEFAULT: "hsl(var(--destructive))",
                     foreground: "hsl(var(--destructive-foreground))",
                 },
-
                 muted: {
                     DEFAULT: "hsl(var(--muted))",
                     foreground: "hsl(var(--muted-foreground))",
                 },
-
                 accent: {
                     DEFAULT: "hsl(var(--accent))",
                     foreground: "hsl(var(--accent-foreground))",
                 },
-
                 popover: {
                     DEFAULT: "hsl(var(--popover))",
                     foreground: "hsl(var(--popover-foreground))",
                 },
-
                 card: {
                     DEFAULT: "hsl(var(--card))",
                     foreground: "hsl(var(--card-foreground))",

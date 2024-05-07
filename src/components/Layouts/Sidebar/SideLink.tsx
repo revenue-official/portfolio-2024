@@ -29,15 +29,15 @@ export default function SideLink({
             className={
                 'inline-flex items-center px-2 py-2 text-md font-medium transition duration-200 ease-in-out focus:outline-none  ' +
                 (active
-                    ? 'text-neutral-100 bg-blue-500 dark:text-white rounded-md '
-                    : 'text-neutral-500 hover:bg-neutral-200 dark:text-neutral-400 dark:hover:bg-neutral-800 rounded-md group ') +
+                    ? 'text-neutral-100 bg-gradient-to-r from-indigo-500 to-purple-500 dark:text-white rounded-md '
+                    : 'text-neutral-500 hover:bg-lightsilver dark:text-neutral-400 dark:hover:bg-raven rounded-md group ') +
                 className
             }
         >
             {children}
             {/* Render <span> only if title is provided */}
             {title && (
-                <span className="group-hover:translate-x-1 duration-200">
+                <span className="duration-200 group-hover:translate-x-1">
                     {title}
                 </span>
             )}

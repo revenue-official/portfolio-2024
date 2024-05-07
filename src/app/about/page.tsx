@@ -1,9 +1,5 @@
+import About from "@/views/about";
 
-export default function About() {
-    return (
-        <>
-            <div>About</div>
-        </>
-
-    );
+export default async function AboutPage() {
+    return <About />
 }
