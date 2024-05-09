@@ -10,6 +10,8 @@ import {
     SiReact,
     SiNextdotjs,
     SiMysql,
+    SiTailwindcss,
+    SiSupabase
 } from '@icons-pack/react-simple-icons';
 
 
@@ -50,6 +52,14 @@ export default function Skills() {
         {
             icon: <SiNextdotjs className="w-8 h-8 p-0.5 bg-white rounded-full shadow-md" color="#000" />,
             title: "NextJS"
+        },
+        {
+            icon: <SiTailwindcss className="w-8 h-8 shadow-md" color="#38BDF8" />,
+            title: "TailwindCSS"
+        },
+        {
+            icon: <SiSupabase className="w-8 h-8 shadow-md" color="#3FCF8E" />,
+            title: "Supabase"
         }
     ]
     return (
@@ -59,11 +69,11 @@ export default function Skills() {
             </Title>
             {/* skills container  */}
             <div className="flex justify-center pt-5 pb-10">
-                <div className="w-[48rem] mx-auto">
+                <div className="w-72 md:w-[48rem] mx-auto">
                     <div className="flex flex-wrap">
                         {
                             iconList.map((item, index) => (
-                                <div key={index} className="w-32 h-32 p-4">
+                                <div key={index} className="w-24 h-24 p-4 overflow-hidden md:w-32 md:h-32">
                                     <div className="flex items-center justify-center w-full h-full shadow-md shadow-neutral-300 dark:shadow-neutral-900 rounded-xl bg-light-100 dark:bg-dark-100">
                                         <div className="flex flex-col items-center justify-center gap-2">
                                             <div className="mt-3">
