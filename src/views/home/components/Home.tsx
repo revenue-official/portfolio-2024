@@ -1,9 +1,10 @@
 import Breakline from "@/components/Elements/Breakline";
-
-import Introduction from "./Introduction";
-import LatestProjects from "./Projects";
+import dynamic from "next/dynamic";
 import { ProjectsProps } from "@/types/projects";
-import Skills from "./Skills";
+
+const Introduction = dynamic(() => import("./Introduction"), { ssr: true });
+const LatestProjects = dynamic(() => import("./Projects"), { ssr: true });
+const Skills = dynamic(() => import("./Skills"), { ssr: true });
 
 export default async function Home({ projects }: { projects: ProjectsProps[] }) {
     return (

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { LayoutGrid } from "@/components/Icon/DefaultIcon";
+import { LayoutGrid } from "@/components/Icon/DefaultIcons";
 import { ProjectsProps } from "@/types/projects";
 import Title from "./Title";
 import dynamic from "next/dynamic";

@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@icons-pack/react-simple-icons": "^9.4.1",
+    "@react-hook/media-query": "^1.1.1",
     "@supabase/ssr": "^0.3.0",
     "@supabase/supabase-js": "^2.42.7",
     "class-variance-authority": "^0.7.0",
