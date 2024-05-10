@@ -6,7 +6,6 @@ import MainLayout from "@/components/Layouts/MainLayout";
 import { ThemeProvider } from "@/contexts/ThemeProvider";
 import NextTopLoader from 'nextjs-toploader';
 
-
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {

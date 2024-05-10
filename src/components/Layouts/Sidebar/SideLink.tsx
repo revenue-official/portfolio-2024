@@ -3,7 +3,7 @@
 import Link from "next/link";
 import React, { ReactNode, useContext } from 'react';
 import { usePathname } from "next/navigation";
-import SidebarContext from "@/contexts/SidebarProvider";
+import useSidebarStore from "@/contexts/SidebarProvider";
 
 interface SideLinkProps {
     active?: boolean;
@@ -25,7 +25,7 @@ export default function SideLink({
         active = true;
     }
 
-    const getContext = useContext(SidebarContext);
+    const getStore = useSidebarStore();
 
     return (
         <Link
@@ -40,7 +40,7 @@ export default function SideLink({
         >
             {children}
             {/* Render <span> only if title is provided */}
-            {title && getContext && (
+            {title && getStore && (
                 <span className="hidden duration-200 group-hover:translate-x-1 md:inline">
                     {title}
                 </span>

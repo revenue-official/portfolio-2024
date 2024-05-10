@@ -3,7 +3,7 @@
 import { Sun, Moon } from "@/components/Icon/DefaultIcons";
 import { useEffect, useState, ReactNode, useContext } from "react";
 import { useTheme } from "next-themes";
-import SidebarContext from "@/contexts/SidebarProvider";
+import useSidebarStore from "@/contexts/SidebarProvider";
 
 interface SideLinkProps {
     className?: string;
@@ -18,7 +18,7 @@ export default function ThemesToggle({
     const [icon, setIcon] = useState(<Sun className="flex-shrink-0 w-8 h-8 p-1 md:w-5 md:h-5 md:ml-2 md:mr-4 md:p-0" />);
     const [title, setTitle] = useState("Light Mode");
 
-    const getContext = useContext(SidebarContext);
+    const getContext = useSidebarStore();
 
     useEffect(() => {
         if (resolvedTheme === "dark") {
