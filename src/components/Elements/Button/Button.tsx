@@ -1,7 +1,7 @@
 import { FC, ReactNode, ButtonHTMLAttributes } from 'react';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-    children: ReactNode;
+    children?: ReactNode;
     variant?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info';
     size?: 'extra-small' | 'small' | 'medium' | 'large' | 'extra-large';
 }
@@ -14,7 +14,7 @@ const Button: FC<ButtonProps> = ({
     ...props
 }) => {
     // Kelas dasar untuk tombol
-    const baseClass = 'px-4 py-2 font-semibold rounded focus:outline-none';
+    const baseClass = 'px-4 font-semibold rounded focus:outline-none';
 
     // Kelas CSS untuk setiap varian
     const variantClasses = {

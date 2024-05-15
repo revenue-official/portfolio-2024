@@ -16,7 +16,7 @@ export default function SideOverview() {
             <SideLink
                 className="md:w-full w-fit font-quicksand"
                 href="/conversation"
-                title="Conversation"
+                title="Chat"
             >
                 <MessageSquareText className="flex-shrink-0 w-8 h-8 p-1 md:w-5 md:h-5 md:ml-2 md:mr-4 md:p-0" />
             </SideLink>
