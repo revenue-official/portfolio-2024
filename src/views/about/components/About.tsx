@@ -12,11 +12,7 @@
 // };
 
 export default async function About() {
-    // const data = await fetchData();
+  // const data = await fetchData();
 
-    return (
-        <div>
-            ?
-        </div>
-    );
+  return <div>?</div>;
 }
