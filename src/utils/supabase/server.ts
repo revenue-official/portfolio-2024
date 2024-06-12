@@ -1,12 +1,12 @@
-import { createServerClient, type CookieOptions } from '@supabase/ssr';
-import { cookies } from 'next/headers';
+import { createServerClient, type CookieOptions } from "@supabase/ssr";
+import { cookies } from "next/headers";
 
-function createClient() {
+export function createClient() {
   const cookieStore = cookies();
 
   return createServerClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    "https://nhmcejjijrztrdieybdu.supabase.co",
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5obWNlamppanJ6dHJkaWV5YmR1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTQ1MDU5NzEsImV4cCI6MjAzMDA4MTk3MX0.ckGgQjRcXidzmsf_05N4jMa4ez6MeR1hYSXoGtXqwoA",
     {
       cookies: {
         get(name: string) {
@@ -23,7 +23,7 @@ function createClient() {
         },
         remove(name: string, options: CookieOptions) {
           try {
-            cookieStore.set({ name, value: '', ...options });
+            cookieStore.set({ name, value: "", ...options });
           } catch (error) {
             // The `delete` method was called from a Server Component.
             // This can be ignored if you have middleware refreshing

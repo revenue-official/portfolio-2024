@@ -1,16 +1,37 @@
-import ConversationLayout from '@/components/Layouts/ChatLayout';
-import UsersList from './UsersList';
-import UserListHeader from './SearchUsers';
-import Image from 'next/image';
-import { MessageCircleOff, Send } from '@/components/Icon/DefaultIcons';
-import { HisBubble, MyBubble } from './MessageBubbles';
+import ConversationLayout from "@/components/Layouts/ChatLayout";
+import UsersList from "./UsersList";
+import UserListHeader from "./SearchUsers";
+import Image from "next/image";
+import { MessageCircleOff, Send } from "@/components/Icon/DefaultIcons";
+import { HisBubble, MyBubble } from "./MessageBubbles";
+import type { MessagesDataProps } from "@/types/messagedataprops";
+import BackButton from "@/components/Elements/Button/BackButton";
 
-export default function Conversation() {
+// based url
+const baseurl = process.env.BASE_URL;
+
+export async function fetchMessageData() {
+  const res = await fetch(`${baseurl}/data/exMessagesData.json`);
+  const data = await res.json();
+  return data;
+}
+
+export default async function Chat() {
+  const MessagesData: MessagesDataProps[] = await fetchMessageData();
+
+  // shorting by created_at in typesscript
+  const MessagesDataSorting = MessagesData.sort((a, b) => {
+    return new Date(a.created_at).getTime() - new Date(b.created_at).getTime();
+  });
+
+  // console.log(MessagesDataSorting);
+
   return (
     <ConversationLayout>
       <div className="flex h-full flex-row gap-4 pr-4">
         {/* side container left */}
         <div className="w-full max-w-72 bg-transparent">
+          <BackButton />
           <UserListHeader />
           {/* List users  */}
           <UsersList />
@@ -37,14 +58,39 @@ export default function Conversation() {
               </div>
             </div>
           </div>
-          <div className="flex h-full flex-col overflow-hidden rounded-xl bg-light-100 p-2 dark:bg-dark-100">
+          <div className="flex h-full flex-col overflow-hidden rounded-xl bg-light-100 p-4 dark:bg-dark-100">
             {/* chat container  */}
             <div className="h-full w-full">
-              {/* his message  */}
-              {/* <HisBubble /> */}
-              {/* my message */}
-              {/* <MyBubble /> */}
-              <div className="flex h-full flex-col items-center justify-center gap-2">
+              {MessagesDataSorting.map((data, index: number) => {
+                const { username, content, created_at, sender_id } = data;
+
+                if (sender_id === "1234") {
+                  return (
+                    <HisBubble
+                      key={index}
+                      username={username}
+                      content={content}
+                      created_at={created_at}
+                    />
+                  );
+                }
+                if (sender_id === "5555") {
+                  return (
+                    <MyBubble
+                      key={index}
+                      username={username}
+                      content={content}
+                      created_at={created_at}
+                    />
+                  );
+                }
+              })}
+              <div
+                className={
+                  "flex h-full flex-col items-center justify-center gap-2 " +
+                  (MessagesData.length ? "hidden" : "")
+                }
+              >
                 <MessageCircleOff className="h-32 w-32 text-neutral-200 dark:text-neutral-800" />
                 <span className="font-poppins text-2xl font-bold text-neutral-200 dark:text-neutral-800">
                   No messages
@@ -58,6 +104,7 @@ export default function Conversation() {
                   type="text"
                   name="search"
                   required
+                  autoComplete="off"
                 />
                 <div className="absolute inset-y-0 left-0 flex items-center gap-2 pl-6 peer-valid:hidden">
                   <span className="font-quicksand text-sm text-neutral-400 dark:text-neutral-600">

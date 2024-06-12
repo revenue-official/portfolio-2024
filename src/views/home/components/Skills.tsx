@@ -22,14 +22,14 @@ export default function Skills() {
                       {item.icon}
                       <span
                         className={
-                          "absolute -top-12 min-w-44 rounded-md bg-light-100 px-2 py-1 text-sm opacity-0 shadow-md delay-150 duration-300 group-hover:opacity-100 dark:bg-dark-100 " +
+                          "absolute -top-12 min-w-44 rounded-md bg-light-100 px-2 py-1 text-xs opacity-0 shadow-md delay-150 duration-300 group-hover:opacity-100 dark:bg-dark-100 " +
                           (item.description == "" ? "hidden" : "")
                         }
                       >
                         {item.description}
                       </span>
                     </div>
-                    <span className="text-xs font-semibold text-neutral-800 dark:text-neutral-200">
+                    <span className="text-[10px] font-semibold text-neutral-800 dark:text-neutral-200 md:text-xs">
                       {item.title}
                     </span>
                   </div>

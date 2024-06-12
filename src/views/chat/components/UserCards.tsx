@@ -1,5 +1,5 @@
-import Image from 'next/image';
-import Link from 'next/link';
+import Image from "next/image";
+import Link from "next/link";
 
 interface UserCardsProps {
   className?: string;
@@ -11,21 +11,23 @@ interface UserCardsProps {
 }
 
 export default function UserCards({
-  className = '',
-  href = '',
+  className = "",
+  href = "",
   image,
   name,
   message,
   time,
 }: UserCardsProps) {
+  const baseurl = process.env.BASE_URL;
+
   return (
     <Link
       href={href}
-      className={`text-md inline-flex h-16 w-full items-center gap-2 rounded-xl bg-light-100 px-4 py-2 font-medium transition duration-200 ease-in-out focus:outline-none dark:bg-dark-100 ${className}`}
+      className={`text-md mt-1 inline-flex h-16 w-full items-center gap-2 rounded-xl bg-light-100 px-4 py-2 font-medium transition duration-200 ease-in-out hover:bg-zinc-200 focus:border focus:border-indigo-600 focus:outline-none dark:bg-dark-100 dark:hover:bg-zinc-800 ${className}`}
     >
       <div className="w-10 overflow-hidden rounded-full">
         <Image
-          src={image ?? process.env.NEXT_URL! + '/images/_blankUser.png'}
+          src={image ?? baseurl + "/images/_blankUser.png"}
           alt="image"
           width={320}
           height={320}
@@ -35,13 +37,15 @@ export default function UserCards({
       </div>
       <div className="flex w-full flex-col">
         <div className="flex h-full w-full flex-nowrap items-center justify-between">
-          <span className="truncate text-nowrap text-xs font-semibold">{name ?? 'Username'}</span>
+          <span className="truncate text-nowrap text-xs font-semibold">
+            {name ?? "Username"}
+          </span>
           <span className="text-nowrap text-xs text-neutral-500 dark:text-neutral-500">
-            {time ?? 'Just now'}
+            {time ?? "Just now"}
           </span>
         </div>
         <span className="line-clamp-2 truncate text-wrap font-quicksand text-xs leading-4 text-neutral-600 dark:text-neutral-400">
-          {message ?? 'User message'}
+          {message ?? "User message"}
         </span>
       </div>
     </Link>
