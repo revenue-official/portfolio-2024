@@ -1,6 +1,8 @@
+"use server";
+
 import { supabase } from "@/utils/supabase/server";
 
-export async function reset(formData: FormData) {
+export async function handlereset(formData: FormData) {
 	const userData = {
 		email: formData.get("email") as string,
 		password: formData.get("password") as string,
@@ -11,15 +13,26 @@ export async function reset(formData: FormData) {
 	 */
 	const { data, error } = await supabase.auth.resetPasswordForEmail(
 		userData.email,
+		{
+			redirectTo: "http://localhost:3000/auth/reset-password",
+		},
 	);
 
+	if (error) {
+		console.log(error);
+	}
+}
+
+export async function resetpassword() {
 	/**
 	 * Step 2: Once the user is redirected back to your application,
 	 * ask the user to reset their password.
 	 */
 
 	supabase.auth.onAuthStateChange(async (event, session) => {
+		console.log(event);
 		if (event == "PASSWORD_RECOVERY") {
+			console.log("after password recovery");
 			const newPassword: any = prompt(
 				"What would you like your new password to be?",
 			);

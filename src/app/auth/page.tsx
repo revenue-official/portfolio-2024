@@ -6,12 +6,14 @@ import { UserRound, Mail, Lock } from "@/components/Icon/DefaultIcons";
 import { useState, useEffect } from "react";
 import { signup, signin, userdata } from "./actions";
 import { useRouter } from "next/navigation";
+import DefaultLoader from "@/components/Elements/Loading";
+import { useLoading } from "@/stores/useLoading";
 
 export default function AuthPage() {
 	const router = useRouter();
-	const [isLoading, setIsLoading] = useState(true);
 	const [onLogin, setOnLogin] = useState(true);
 	const [isRemembered, setIsRemembered] = useState(false);
+	const { onLoading, setOnLoading } = useLoading();
 
 	useEffect(() => {
 		async function checkUser() {
@@ -20,21 +22,18 @@ export default function AuthPage() {
 			if (user) {
 				router.push("/");
 			} else {
-				setIsLoading(false);
+				setTimeout(() => {
+					setOnLoading(false);
+				}, 1000);
 			}
 		}
 		checkUser();
-	}, [router]);
+	}, [router, setOnLoading]);
 
 	return (
 		<>
 			{/*loader */}
-			{isLoading && (
-				<div className="fixed inset-0 z-50 flex items-center justify-center">
-					<div className="absolute inset-0 bg-light-50 opacity-30 dark:bg-dark-50"></div>
-					<div className="default-loader relative z-10 h-10 w-10"></div>
-				</div>
-			)}
+			{onLoading && <DefaultLoader variantColor="indigo" />}
 			<div className="h-fit w-fit">
 				<BackButton to="/" />
 			</div>
