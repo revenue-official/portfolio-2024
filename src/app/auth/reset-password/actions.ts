@@ -30,7 +30,8 @@ export async function resetpassword() {
 	 */
 
 	supabase.auth.onAuthStateChange(async (event, session) => {
-		console.log(event);
+		console.log("Event: ", event);
+		console.log("Session: ", session);
 		if (event == "PASSWORD_RECOVERY") {
 			console.log("after password recovery");
 			const newPassword: any = prompt(

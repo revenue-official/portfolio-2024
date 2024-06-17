@@ -2,11 +2,11 @@
 
 import BackButton from "@/components/Elements/Button/BackButton";
 import Breakline from "@/components/Elements/Breakline";
+import DefaultLoader from "@/components/Elements/Loading";
 import { UserRound, Mail, Lock } from "@/components/Icon/DefaultIcons";
 import { useState, useEffect } from "react";
-import { signup, signin, userdata } from "./actions";
+import { signup, login, checkSession } from "./actions";
 import { useRouter } from "next/navigation";
-import DefaultLoader from "@/components/Elements/Loading";
 import { useLoading } from "@/stores/useLoading";
 
 export default function AuthPage() {
@@ -17,23 +17,27 @@ export default function AuthPage() {
 
 	useEffect(() => {
 		async function checkUser() {
-			const user = await userdata();
-
-			if (user) {
-				router.push("/");
-			} else {
-				setTimeout(() => {
+			try {
+				const userData: any = await checkSession();
+				if (userData) {
+					// router.push("/");
 					setOnLoading(false);
-				}, 1000);
+				} else {
+					setTimeout(() => {
+						setOnLoading(false);
+					}, 1000);
+				}
+			} catch (error) {
+				console.error(error);
+				setOnLoading(false);
 			}
 		}
 		checkUser();
 	}, [router, setOnLoading]);
-
 	return (
 		<>
 			{/*loader */}
-			{onLoading && <DefaultLoader variantColor="indigo" />}
+			{/*{onLoading && <DefaultLoader variantColor="indigo" />}*/}
 			<div className="h-fit w-fit">
 				<BackButton to="/" />
 			</div>
@@ -70,27 +74,6 @@ export default function AuthPage() {
 						</button>
 					</div>
 					<Breakline className="my-6" />
-					{!onLogin && (
-						<div className="mb-5">
-							<label
-								htmlFor="username"
-								className="mb-2 block text-sm font-medium text-zinc-900 dark:text-zinc-400"
-							>
-								Name
-							</label>
-							<div className="flex items-center">
-								<input
-									name="username"
-									type="username"
-									id="username"
-									className="block w-full rounded-lg border border-zinc-400 bg-light-50 p-2.5 pl-10 text-sm text-zinc-700 outline-none focus:border-indigo-600  dark:border-zinc-800 dark:bg-dark-100 dark:text-white dark:placeholder-zinc-600 dark:focus:border-indigo-600"
-									placeholder="Enter your name"
-									required
-								/>
-								<UserRound className="absolute ml-2 text-zinc-600" />
-							</div>
-						</div>
-					)}
 					<div className="mb-5">
 						<label
 							htmlFor="email"
@@ -189,7 +172,7 @@ export default function AuthPage() {
 						<button
 							type="submit"
 							className="w-full rounded-lg border border-indigo-600 px-5 py-2.5 text-center text-sm font-medium text-zinc-800 duration-200 hover:bg-indigo-600 focus:outline-none focus:ring-4 dark:text-white"
-							formAction={onLogin ? signin : signup}
+							formAction={onLogin ? login : signup}
 						>
 							{onLogin ? "SIGN IN" : "SIGN UP"}
 						</button>

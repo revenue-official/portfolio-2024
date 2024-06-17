@@ -9,7 +9,6 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { signout, userdata } from "@/app/auth/actions";
 
 interface SideProfileProps {
   username?: string | null | undefined;
@@ -32,7 +31,13 @@ export default function SideProfile() {
     setOriginHostname(hostname);
 
     async function getUserData() {
-      const data = await userdata();
+      const data = {
+        user_metadata: {
+          username: "",
+          email: "",
+          image: "",
+        },
+      };
 
       setIsDataUser(
         data?.user_metadata ?? {
@@ -93,7 +98,6 @@ export default function SideProfile() {
                 <button
                   className="flex flex-row items-center justify-start gap-2 px-4 py-1 duration-300 hover:gap-4"
                   type="button"
-                  onClick={() => signout()}
                 >
                   <Logout className="h-4 w-4 flex-shrink-0" />
                   <span className="font-poppins text-sm ">Logout</span>

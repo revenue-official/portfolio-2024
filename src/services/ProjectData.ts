@@ -4,7 +4,7 @@ import { supabase } from "@/utils/supabase/client";
 
 // Fungsi asinkron untuk mengambil data dari URL.
 export async function getProjectsData(): Promise<ProjectsProps[]> {
-  const { data: latest_project, error } = await supabase
+  let { data: latest_project, error } = await supabase
     .from("latest_project")
     .select("*");
 

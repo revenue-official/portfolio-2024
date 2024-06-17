@@ -2,25 +2,17 @@ import ConversationLayout from "@/components/Layouts/ChatLayout";
 import UsersList from "./UsersList";
 import UserListHeader from "./SearchUsers";
 import Image from "next/image";
+import BackButton from "@/components/Elements/Button/BackButton";
 import { MessageCircleOff, Send } from "@/components/Icon/DefaultIcons";
 import { HisBubble, MyBubble } from "./MessageBubbles";
-import type { MessagesDataProps } from "@/types/messagedataprops";
-import BackButton from "@/components/Elements/Button/BackButton";
-
-// based url
-const baseurl = process.env.BASE_URL;
-
-export async function fetchMessageData() {
-  const res = await fetch(`${baseurl}/data/exMessagesData.json`);
-  const data = await res.json();
-  return data;
-}
+import { getMessagesData } from "@/services/MessagesData";
+import type { MessagesProps } from "@/types/messagesprops";
 
 export default async function Chat() {
-  const MessagesData: MessagesDataProps[] = await fetchMessageData();
-
+  const messagesData: MessagesProps[] = await getMessagesData();
+  console.log(messagesData);
   // shorting by created_at in typesscript
-  const MessagesDataSorting = MessagesData.sort((a, b) => {
+  const MessagesDataSorting = messagesData.sort((a, b) => {
     return new Date(a.created_at).getTime() - new Date(b.created_at).getTime();
   });
 
@@ -61,34 +53,18 @@ export default async function Chat() {
           <div className="flex h-full flex-col overflow-hidden rounded-xl bg-light-100 p-4 dark:bg-dark-100">
             {/* chat container  */}
             <div className="h-full w-full">
-              {MessagesDataSorting.map((data, index: number) => {
-                const { username, content, created_at, sender_id } = data;
-
-                if (sender_id === "1234") {
-                  return (
-                    <HisBubble
-                      key={index}
-                      username={username}
-                      content={content}
-                      created_at={created_at}
-                    />
-                  );
+              {MessagesDataSorting.map((data: MessagesProps, index: number) => {
+                if (data?.sender_id === "1234") {
+                  return <HisBubble key={index} data={data} />;
                 }
-                if (sender_id === "5555") {
-                  return (
-                    <MyBubble
-                      key={index}
-                      username={username}
-                      content={content}
-                      created_at={created_at}
-                    />
-                  );
+                if (data?.sender_id) {
+                  return <MyBubble key={index} data={data} />;
                 }
               })}
               <div
                 className={
                   "flex h-full flex-col items-center justify-center gap-2 " +
-                  (MessagesData.length ? "hidden" : "")
+                  (messagesData.length ? "hidden" : "")
                 }
               >
                 <MessageCircleOff className="h-32 w-32 text-neutral-200 dark:text-neutral-800" />

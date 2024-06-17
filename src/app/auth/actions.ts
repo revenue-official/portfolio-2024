@@ -1,87 +1,85 @@
 "use server";
 
+import { auth } from "@/utils/firebase";
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
-import { supabase } from "@/utils/supabase/server";
-
-// host
-const baseurl = process.env.BASE_URL || "http://localhost:3000";
-
-export async function userdata() {
-	const {
-		data: { user },
-	} = await supabase.auth.getUser();
-	return user;
-}
+import { FirebaseError } from "firebase/app";
+import {
+	createUserWithEmailAndPassword,
+	signInWithEmailAndPassword,
+	setPersistence,
+	browserSessionPersistence,
+} from "firebase/auth";
+import { onAuthStateChanged } from "firebase/auth";
 
 export async function signup(formData: FormData) {
 	const userData = {
-		username: formData.get("username") as string,
 		email: formData.get("email") as string,
 		password: formData.get("password") as string,
 		repassword: formData.get("repassword") as string,
 	};
 
-	if (userData.password !== userData.repassword) {
-		revalidatePath("/auth", "page");
-		return redirect("/error");
+	if (userData?.password !== userData?.repassword) {
+		return "Passwords don't match";
 	}
 
-	const { error } = await supabase.auth.signUp({
-		email: userData.email,
-		password: userData.password,
-		options: {
-			data: {
-				username: userData.username,
-				image: "",
-			},
-		},
-	});
-
-	if (error) {
-		console.log(error);
-		return redirect("/error");
+	try {
+		const { user } = await createUserWithEmailAndPassword(
+			auth,
+			userData?.email,
+			userData?.password,
+		);
+		console.log("User: ", user);
+	} catch (error) {
+		// console.log(error);
+		if (error instanceof FirebaseError) {
+			console.log(error.message);
+			return error.code;
+		} else {
+			console.error(error);
+		}
 	}
-
-	// console.log(data);
-	revalidatePath("/", "page");
-	redirect("/auth");
 }
 
-export async function signin(formData: FormData) {
+export async function login(formData: FormData) {
 	const userData = {
 		email: formData.get("email") as string,
 		password: formData.get("password") as string,
 	};
 
-	const { error } = await supabase.auth.signInWithPassword({
-		email: userData.email,
-		password: userData.password,
-	});
+	try {
+		await setPersistence(auth, browserSessionPersistence);
+		const { user } = await signInWithEmailAndPassword(
+			auth,
+			userData?.email,
+			userData?.password,
+		);
 
-	if (error) {
-		console.log(error);
-		return redirect("/error");
+		// console.log("User: ", user);
+	} catch (error) {
+		// console.log(error);
+		if (error instanceof FirebaseError) {
+			console.log(error.message);
+			return error.code;
+		} else {
+			console.error(error);
+		}
 	}
 
-	// console.log(data);
-	revalidatePath("/", "page");
+	revalidatePath("/");
 	redirect("/");
 }
 
-export async function signout() {
-	const { error } = await supabase.auth.signOut();
-
-	if (error) {
-		console.log(error);
-		return redirect("/error");
-	}
-
-	revalidatePath("/", "page");
-	redirect("/auth");
-}
-
-export async function redirectreset() {
-	revalidatePath("/auth/reset-password", "page");
-	redirect("/auth/reset-password");
+export async function checkSession() {
+	onAuthStateChanged(auth, (user) => {
+		if (user) {
+			// User is signed in, see docs for a list of available properties
+			// https://firebase.google.com/docs/reference/js/auth.user
+			console.log("User is signed in", auth.currentUser);
+			const uid = user.uid;
+			return uid;
+		} else {
+			console.log("User is signed out");
+		}
+	});
 }

@@ -1,9 +1,9 @@
-import type { MessagesDataProps } from "@/types/messagedataprops";
+import type { MessagesProps } from "@/types/messagesprops";
 import Image from "next/image";
 
 const baseurl = process.env.BASE_URL;
 
-export function HisBubble(data: MessagesDataProps) {
+export function HisBubble({ data }: { data: MessagesProps }) {
   const { username, content, created_at } = data;
 
   return (
@@ -36,7 +36,7 @@ export function HisBubble(data: MessagesDataProps) {
   );
 }
 
-export function MyBubble(data: MessagesDataProps) {
+export function MyBubble({ data }: { data: MessagesProps }) {
   const { username, content, created_at } = data;
   return (
     <>
