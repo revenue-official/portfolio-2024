@@ -1,5 +1,5 @@
 import { ProjectsProps } from "./projects";
-import { MessagesProps } from "./messagesprops";
+import { MessagesProps } from "./messages";
 
 export interface IRevCodesData {
   projects: ProjectsProps[];

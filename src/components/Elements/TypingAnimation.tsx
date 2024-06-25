@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 interface TypingAnimationProps {
   phrases: string[];
@@ -14,20 +14,20 @@ interface TypingAnimationProps {
 
 const TypingAnimation: React.FC<TypingAnimationProps> = ({
   phrases,
-  typingSpeed = 100,
+  typingSpeed = 70,
   deletingSpeed = 50,
   delayAfterTyping = 2000,
   delayAfterDeleting = 3000,
   nonDeletableIndices = [0],
-  className = '',
+  className = "",
 }) => {
   // Salin phrases ke initialPhrases untuk menyimpan kondisi awal
   const [initialPhrases, setInitialPhrases] = useState<string[]>([...phrases]);
 
-  const [text, setText] = useState<string>('');
+  const [text, setText] = useState<string>("");
   const [currentPhraseIndex, setCurrentPhraseIndex] = useState<number>(0);
   const [isDeleting, setIsDeleting] = useState<boolean>(false);
-  const [fixedText, setFixedText] = useState<string>('');
+  const [fixedText, setFixedText] = useState<string>("");
   const [showCursor, setShowCursor] = useState<boolean>(true);
   const [hasCompleted, setHasCompleted] = useState<boolean>(false);
 
@@ -48,10 +48,12 @@ const TypingAnimation: React.FC<TypingAnimationProps> = ({
         if (nonDeletableIndices.includes(currentPhraseIndex)) {
           // Jika frase tidak boleh dihapus, simpan ke state
           setFixedText(fixedText + text);
-          setText('');
+          setText("");
           // Setelah dijalankan 1x, kosongkan initialPhrases di indeks ini
-          initialPhrases[currentPhraseIndex] = '';
-          setCurrentPhraseIndex((currentPhraseIndex + 1) % initialPhrases.length);
+          initialPhrases[currentPhraseIndex] = "";
+          setCurrentPhraseIndex(
+            (currentPhraseIndex + 1) % initialPhrases.length,
+          );
         } else {
           // Jika frase boleh dihapus, tunggu delay lalu mulai menghapus
           timeoutId = setTimeout(() => {
@@ -100,7 +102,7 @@ const TypingAnimation: React.FC<TypingAnimationProps> = ({
   }, []);
 
   // Menampilkan garis berkedip jika showCursor true
-  const cursor = showCursor ? '|' : '';
+  const cursor = showCursor ? "|" : "";
 
   return <span className={className}>{fixedText + text + cursor}</span>;
 };

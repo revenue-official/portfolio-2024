@@ -6,9 +6,10 @@ import { useMediaQuery } from "@react-hook/media-query";
 import useSidebarStore from "@/stores/useSidebarOpened";
 import SideOverview from "./SideOverview";
 import SideAccount from "./SideAccount";
-import SideProfile from "./SideProfile";
 import SideHeader from "./SideHeader";
 import SideToggle from "./SideToggle";
+
+import React from "react";
 
 export default function Sidebar() {
   const isOpen = useSidebarStore((state) => state.isOpen);
@@ -31,9 +32,11 @@ export default function Sidebar() {
         await setTimeoutPromise(3000);
         setFirstOpenDuration("duration-500 -left-2");
         setIsOpen(true);
+
         await setTimeoutPromise(600);
         setFirstOpenDuration("duration-500 left-0");
         setIsOpen(false);
+
         await setTimeoutPromise(500);
         setFirstOpenDuration("duration-300");
       };
@@ -63,10 +66,6 @@ export default function Sidebar() {
           {/* Account  */}
           <SideAccount />
         </div>
-        {/* BreakLine  */}
-        <Breakline className="my-1" />
-        {/* profile */}
-        <SideProfile />
       </div>
     </aside>
   );

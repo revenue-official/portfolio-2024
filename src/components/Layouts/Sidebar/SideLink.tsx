@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import React, { ReactNode, useContext } from "react";
+import React, { ReactNode } from "react";
 import { usePathname } from "next/navigation";
 import useSidebarStore from "@/stores/useSidebarOpened";
 
@@ -33,7 +33,7 @@ export default function SideLink({
       className={
         "text-md inline-flex items-center px-2 py-2 font-medium transition duration-200 ease-in-out focus:outline-none  " +
         (active
-          ? `rounded-md bg-blue-500 text-neutral-100 dark:text-white `
+          ? `rounded-md bg-indigo-500 text-neutral-100 dark:text-white `
           : "hover:bg-lightsilver dark:hover:bg-raven group rounded-md text-neutral-500 dark:text-neutral-400 ") +
         className
       }

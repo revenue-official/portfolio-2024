@@ -3,10 +3,16 @@
 import Title from "./Title";
 import { CodeXml } from "@/components/Icon/DefaultIcons";
 import { IconList } from "@/components/Elements/IconStack";
+import { useEffect } from "react";
 
-export default function Skills() {
+export default function Skills({ sectionRef }: { sectionRef: any }) {
+  useEffect(() => {
+    if (sectionRef.current) {
+      sectionRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [sectionRef]);
   return (
-    <section className="min-h-40 w-full">
+    <section id="skill" ref={sectionRef} className="min-h-screen w-full">
       <Title title="Skills" subtitle="My technical skills">
         <CodeXml className="h-5 w-5" />
       </Title>

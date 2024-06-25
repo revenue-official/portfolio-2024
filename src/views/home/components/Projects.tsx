@@ -1,14 +1,15 @@
-'use client';
+"use client";
 
-import { useEffect, useRef } from 'react';
-import { LayoutGrid } from '@/components/Icon/DefaultIcons';
-import { ProjectsProps } from '@/types/projects';
-import Title from './Title';
-import dynamic from 'next/dynamic';
+import { useEffect, useRef } from "react";
+import { LayoutGrid } from "@/components/Icon/DefaultIcons";
+import { ProjectsProps } from "@/types/projects";
+import Title from "./Title";
+import dynamic from "next/dynamic";
 
-const ProjectsCard = dynamic(() => import('./ProjectsCard'), { ssr: true });
+//dynamic import
+// const ProjectsCard = dynamic(() => import("./ProjectsCard"), { ssr: true });
 
-export default function Projects({ projects }: { projects: ProjectsProps[] }) {
+export default function Projects() {
   const cardContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -18,9 +19,9 @@ export default function Projects({ projects }: { projects: ProjectsProps[] }) {
 
     setTimeout(() => {
       if (container) {
-        container.scrollTo({ left: container.scrollWidth, behavior: 'smooth' });
+        container.scrollTo({ left: container.scrollWidth, behavior: "smooth" });
         timeoutId = setTimeout(() => {
-          container.scrollTo({ left: 0, behavior: 'smooth' });
+          container.scrollTo({ left: 0, behavior: "smooth" });
         }, 1000);
       }
       return () => clearTimeout(timeoutId);
@@ -37,12 +38,11 @@ export default function Projects({ projects }: { projects: ProjectsProps[] }) {
         ref={cardContainerRef}
         className="hidden-scrollbar mx-auto flex snap-x snap-mandatory gap-4 overflow-x-auto py-4"
       >
-        {
-          /* card  */
+        {/* card  
           projects.map((project, index) => (
             <ProjectsCard key={index} project={project} />
           ))
-        }
+          */}
       </div>
     </section>
   );

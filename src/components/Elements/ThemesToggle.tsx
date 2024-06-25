@@ -61,7 +61,7 @@ export default function ThemesToggle({
       {getContext && (
         <div className="relative hidden h-5 w-12 items-center overflow-hidden rounded-full bg-neutral-400 px-1 dark:bg-neutral-700 md:flex">
           <div
-            className={`relative left-0 top-0 h-4 w-4 rounded-full shadow-sm duration-300 ${title === "Dark Mode" ? "left-4 bg-gradient-to-r from-indigo-500 to-purple-500" : "left-0 bg-neutral-100"}`}
+            className={`relative left-0 top-0 h-4 w-4 rounded-full shadow-sm duration-300 ${title === "Dark Mode" ? "left-4 bg-indigo-500" : "left-0 bg-neutral-100"}`}
           />
         </div>
       )}
