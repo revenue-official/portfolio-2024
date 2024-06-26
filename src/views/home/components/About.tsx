@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect } from "react";
+import Title from "./Title";
+import { UserRound } from "@/components/Icon/DefaultIcons";
 
 export default function About({ sectionRef }: { sectionRef: any }) {
 	useEffect(() => {
@@ -10,7 +12,10 @@ export default function About({ sectionRef }: { sectionRef: any }) {
 	}, [sectionRef]);
 	return (
 		<section id="about" ref={sectionRef} className="min-h-screen w-full">
-			<div className="flex items-center justify-center">about</div>
+			<Title title="About me" subtitle="Know about me">
+				<UserRound className="h-5 w-5" />
+			</Title>
+			<div></div>
 		</section>
 	);
 }

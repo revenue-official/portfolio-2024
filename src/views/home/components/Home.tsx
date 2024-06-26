@@ -14,10 +14,6 @@ export default function Home() {
     threshold: 0.5,
   };
 
-  const introRef = useRef();
-  const aboutRef = useRef();
-  const skillRef = useRef();
-
   const {
     ref: introInViewRef,
     inView: introInView,
@@ -44,12 +40,14 @@ export default function Home() {
     });
   }, [introInView, aboutInView, skillInView, setSideActive]);
 
+  useEffect(() => {
+    console.log(introEntry, aboutEntry, skillEntry);
+  }, [introEntry, aboutEntry, skillEntry]);
+
   return (
     <>
       <Introduction sectionRef={introInViewRef} />
-      <Breakline className="my-6" />
       <About sectionRef={aboutInViewRef} />
-      <Breakline className="my-6" />
       <Skills sectionRef={skillInViewRef} />
     </>
   );
