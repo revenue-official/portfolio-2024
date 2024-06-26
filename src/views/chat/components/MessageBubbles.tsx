@@ -1,4 +1,4 @@
-import type { MessagesProps } from "@/types/messagesprops";
+import type { MessagesProps } from "@/types/messages";
 import Image from "next/image";
 
 const baseurl = process.env.BASE_URL;

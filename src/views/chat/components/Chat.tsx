@@ -5,12 +5,10 @@ import Image from "next/image";
 import BackButton from "@/components/Elements/Button/BackButton";
 import { MessageCircleOff, Send } from "@/components/Icon/DefaultIcons";
 import { HisBubble, MyBubble } from "./MessageBubbles";
-import { getMessagesData } from "@/services/MessagesData";
-import type { MessagesProps } from "@/types/messagesprops";
 
 export default async function Chat() {
-  const messagesData: MessagesProps[] = await getMessagesData();
-  console.log(messagesData);
+  const messagesData: any[] = [];
+  // console.log(messagesData);
   // shorting by created_at in typesscript
   const MessagesDataSorting = messagesData.sort((a, b) => {
     return new Date(a.created_at).getTime() - new Date(b.created_at).getTime();
@@ -53,7 +51,7 @@ export default async function Chat() {
           <div className="flex h-full flex-col overflow-hidden rounded-xl bg-light-100 p-4 dark:bg-dark-100">
             {/* chat container  */}
             <div className="h-full w-full">
-              {MessagesDataSorting.map((data: MessagesProps, index: number) => {
+              {MessagesDataSorting.map((data, index: number) => {
                 if (data?.sender_id === "1234") {
                   return <HisBubble key={index} data={data} />;
                 }
