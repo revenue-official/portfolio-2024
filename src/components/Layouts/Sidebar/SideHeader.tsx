@@ -5,14 +5,17 @@ import { useEffect, useState } from "react";
 
 export default function SideHeader() {
   const [originHostname, setOriginHostname] = useState<string>("");
+  const [revCodesIcon, setRevCodesIcon] = useState<string>("");
+
   useEffect(() => {
     setOriginHostname(window.location.origin);
-  }, []);
+    setRevCodesIcon(originHostname + "/images/RevCodes.png");
+  }, [originHostname]);
 
   return (
     <div className="mt-2 flex h-14 cursor-default items-center justify-center">
       <Image
-        src={originHostname + "/images/RevCodes.png"}
+        src={revCodesIcon}
         alt="TailwindCSS"
         width={100}
         height={100}

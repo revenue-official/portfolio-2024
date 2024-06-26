@@ -40,10 +40,6 @@ export default function Home() {
     });
   }, [introInView, aboutInView, skillInView, setSideActive]);
 
-  useEffect(() => {
-    console.log(introEntry, aboutEntry, skillEntry);
-  }, [introEntry, aboutEntry, skillEntry]);
-
   return (
     <>
       <Introduction sectionRef={introInViewRef} />
