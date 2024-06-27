@@ -1,21 +1,12 @@
-"use client";
-
 import Image from "next/image";
-import { useEffect, useState } from "react";
 
 export default function SideHeader() {
-  const [originHostname, setOriginHostname] = useState<string>("");
-  const [revCodesIcon, setRevCodesIcon] = useState<string>("");
-
-  useEffect(() => {
-    setOriginHostname(window.location.origin);
-    setRevCodesIcon(originHostname + "/images/RevCodes.png");
-  }, [originHostname]);
+  const baseUrl: string = process.env.NEXT_PUBLIC_BASE_URL!;
 
   return (
     <div className="mt-2 flex h-14 cursor-default items-center justify-center">
       <Image
-        src={revCodesIcon}
+        src={baseUrl + "/images/RevCodes.png"}
         alt="TailwindCSS"
         width={100}
         height={100}

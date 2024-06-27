@@ -41,7 +41,7 @@ export default function Introduction({ sectionRef }: { sectionRef: any }) {
           className="pt-10 font-poppins text-lg font-bold text-black dark:text-white md:text-3xl"
         />
         <div className="flex h-fit md:mb-4">
-          <ul className="font-comfortaa block list-inside list-disc gap-4 md:flex">
+          <ul className="font-comfortaa flex list-inside list-disc gap-2 md:gap-4">
             {/* betikan dot/bulatan  */}
             <li className="font-poppins text-sm font-medium text-neutral-600 dark:text-neutral-400">
               IT student

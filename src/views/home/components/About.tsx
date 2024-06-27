@@ -12,8 +12,8 @@ export default function About({ sectionRef }: { sectionRef: any }) {
 	}, [sectionRef]);
 	return (
 		<section id="about" ref={sectionRef} className="min-h-screen w-full">
-			<Title title="About me" subtitle="Know about me">
-				<UserRound className="h-5 w-5" />
+			<Title title="About" subtitle="Know about me">
+				<UserRound className="h-6 w-6" />
 			</Title>
 			<div></div>
 		</section>

@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode } from "react";
 
 interface TitleProps {
   title: string;
@@ -9,7 +9,7 @@ interface TitleProps {
 export default function Title({ title, subtitle, children }: TitleProps) {
   return (
     <div className="my-4 flex flex-col">
-      <div className="inline-flex items-center gap-2 text-neutral-800 dark:text-neutral-200">
+      <div className="inline-flex gap-2 text-neutral-800 dark:text-neutral-200">
         {children}
         <span className="font-quicksand text-xl font-bold">{title}</span>
       </div>
