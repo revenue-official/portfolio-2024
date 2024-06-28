@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 import { useMediaQuery } from "@react-hook/media-query";
 import useSidebarStore from "@/stores/useSidebarOpened";
 import SideOverview from "./SideOverview";
-import SideAccount from "./SideAccount";
 import SideHeader from "./SideHeader";
 import SideToggle from "./SideToggle";
 
@@ -63,8 +62,6 @@ export default function Sidebar() {
           <Breakline className="my-2" />
           {/* Overview  */}
           <SideOverview />
-          {/* Account  */}
-          <SideAccount />
         </div>
       </div>
     </aside>

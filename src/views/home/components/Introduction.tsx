@@ -13,11 +13,11 @@ export default function Introduction({ sectionRef }: { sectionRef: any }) {
   ];
   const nonDeletableIndices = [0];
 
-  useEffect(() => {
-    if (sectionRef.current) {
-      sectionRef.current.scrollIntoView({ behavior: "smooth" });
-    }
-  }, [sectionRef]);
+  // useEffect(() => {
+  //   if (sectionRef.current) {
+  //     sectionRef.current.scrollIntoView({ behavior: "smooth" });
+  //   }
+  // }, [sectionRef]);
 
   return (
     <section id="home" ref={sectionRef} className="min-h-screen w-full pb-20">

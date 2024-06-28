@@ -1,50 +1,45 @@
 "use client";
 
-import Link from "next/link";
-import React, { ReactNode } from "react";
-import { usePathname } from "next/navigation";
-import useSidebarStore from "@/stores/useSidebarOpened";
+import { useScrollStore } from "@/stores/useScrollStore";
+import { useEffect } from "react";
 
-interface SideLinkProps {
-  active?: boolean;
-  className?: string;
-  children?: ReactNode;
-  href?: string;
-  title?: string;
+interface SideActiveProps {
+	children: React.ReactNode;
+	className?: string;
+	title?: string;
+	active?: boolean;
+	sectionId?: string;
 }
 
-export default function SideLink({
-  active = false,
-  className = "",
-  children,
-  href = "",
-  title = "",
-}: SideLinkProps) {
-  const pathname = usePathname();
-  if (href === pathname) {
-    active = true;
-  }
-
-  const getStore = useSidebarStore();
-
-  return (
-    <Link
-      href={href}
-      className={
-        "text-md inline-flex items-center px-2 py-2 font-medium transition duration-200 ease-in-out focus:outline-none  " +
-        (active
-          ? `rounded-md bg-indigo-500 text-neutral-100 dark:text-white `
-          : "hover:bg-lightsilver dark:hover:bg-raven group rounded-md text-neutral-500 dark:text-neutral-400 ") +
-        className
-      }
-    >
-      {children}
-      {/* Render <span> only if title is provided */}
-      {title && getStore && (
-        <span className="hidden duration-200 group-hover:translate-x-1 md:inline">
-          {title}
-        </span>
-      )}
-    </Link>
-  );
+export default function SideActive({
+	children,
+	className,
+	title,
+	active,
+	sectionId,
+}: SideActiveProps) {
+	// Scroll to section
+	const { scrollToSection } = useScrollStore();
+	return (
+		<button
+			type="button"
+			onClick={() => scrollToSection(sectionId as string)}
+			className={
+				"text-md group inline-flex cursor-pointer items-center justify-center px-2 py-2 transition duration-200 ease-in-out focus:outline-none md:justify-start " +
+				className
+			}
+		>
+			{children}
+			<span
+				className={
+					"font-xs hidden font-poppins font-bold duration-300 md:block " +
+					(active
+						? "text-indigo-500"
+						: " text-zinc-600 group-hover:translate-x-1 dark:text-zinc-100")
+				}
+			>
+				{title}
+			</span>
+		</button>
+	);
 }

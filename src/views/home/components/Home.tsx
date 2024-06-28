@@ -1,15 +1,15 @@
 "use client";
 
-import Breakline from "@/components/Elements/Breakline";
-import Introduction from "./Introduction";
 import About from "./About";
 import Skills from "./Skills";
-import { useState, useEffect, useRef, useCallback } from "react";
+import Introduction from "./Introduction";
+import { useEffect, useRef } from "react";
 import { useInView } from "react-intersection-observer";
-import { useSideActive } from "@/stores/useSideActive";
+import { useScrollStore } from "@/stores/useScrollStore";
 
 export default function Home() {
-  const { sideActive, setSideActive } = useSideActive();
+  const setSectionRef = useScrollStore((state) => state.setSectionRef);
+
   const defaultOptions = {
     threshold: 0.5,
   };
@@ -33,12 +33,10 @@ export default function Home() {
   } = useInView(defaultOptions);
 
   useEffect(() => {
-    setSideActive({
-      home: introInView,
-      about: aboutInView,
-      skill: skillInView,
-    });
-  }, [introInView, aboutInView, skillInView, setSideActive]);
+    setSectionRef("home", introEntry);
+    setSectionRef("about", aboutEntry);
+    setSectionRef("skill", skillEntry);
+  }, [introEntry, aboutEntry, skillEntry, setSectionRef]);
 
   return (
     <>

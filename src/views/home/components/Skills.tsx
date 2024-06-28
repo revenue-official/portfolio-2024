@@ -2,15 +2,15 @@
 
 import Title from "./Title";
 import { CodeXml } from "@/components/Icon/DefaultIcons";
-import { IconList } from "@/components/Elements/IconStack";
+import { IconList } from "@/components/Elements/IconStacks";
 import { useEffect } from "react";
 
 export default function Skills({ sectionRef }: { sectionRef: any }) {
-  useEffect(() => {
-    if (sectionRef.current) {
-      sectionRef.current.scrollIntoView({ behavior: "smooth" });
-    }
-  }, [sectionRef]);
+  // useEffect(() => {
+  //   if (sectionRef.current) {
+  //     sectionRef.current.scrollIntoView({ behavior: "smooth" });
+  //   }
+  // }, [sectionRef]);
   return (
     <section id="skill" ref={sectionRef} className="min-h-screen w-full">
       <Title title="Skills" subtitle="My technical skills">
