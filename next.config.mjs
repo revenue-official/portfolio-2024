@@ -12,6 +12,10 @@ const nextConfig = {
       },
       {
         protocol: "https",
+        hostname: "revenue-programming.my.id",
+      },
+      {
+        protocol: "https",
         hostname: "plus.unsplash.com",
       },
       {
