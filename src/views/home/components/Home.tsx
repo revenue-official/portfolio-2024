@@ -8,7 +8,7 @@ import { useInView } from "react-intersection-observer";
 import { useScrollStore } from "@/stores/useScrollStore";
 
 export default function Home() {
-  const setSectionRef = useScrollStore((state) => state.setSectionRef);
+  const { setSectionRef } = useScrollStore();
 
   const defaultOptions = {
     threshold: 0.5,

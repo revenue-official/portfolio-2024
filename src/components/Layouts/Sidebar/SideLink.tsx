@@ -1,7 +1,6 @@
 "use client";
 
 import { useScrollStore } from "@/stores/useScrollStore";
-import { useEffect } from "react";
 
 interface SideActiveProps {
 	children: React.ReactNode;

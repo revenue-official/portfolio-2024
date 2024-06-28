@@ -1,7 +1,14 @@
+"use client";
+
 import Image from "next/image";
+import { useState, useEffect } from "react";
 
 export default function SideHeader() {
-  const baseUrl: string = process.env.NEXT_PUBLIC_BASE_URL!;
+  const [baseUrl, setBaseUrl] = useState("");
+
+  useEffect(() => {
+    setBaseUrl(process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000");
+  }, [setBaseUrl]);
 
   return (
     <div className="mt-2 flex h-14 cursor-default items-center justify-center">
