@@ -6,23 +6,18 @@ import { IconList } from "@/components/Elements/IconStacks";
 import { useEffect } from "react";
 
 export default function Skills({ sectionRef }: { sectionRef: any }) {
-  // useEffect(() => {
-  //   if (sectionRef.current) {
-  //     sectionRef.current.scrollIntoView({ behavior: "smooth" });
-  //   }
-  // }, [sectionRef]);
   return (
     <section id="skill" ref={sectionRef} className="min-h-screen w-full">
       <Title title="Skills" subtitle="My technical skills">
         <CodeXml className="h-6 w-6" />
       </Title>
       {/* skills container  */}
-      <div className="flex justify-center pb-10 pt-5">
-        <div className="mx-auto w-72 md:w-[48rem]">
-          <div className="flex flex-wrap">
+      <div className="flex justify-center pb-10 pt-5 md:px-8">
+        <div className="mx-auto min-w-full">
+          <div className="grid grid-cols-3 md:grid-cols-6">
             {IconList.map((item, index) => (
               <div key={index} className="h-24 w-24 p-4 md:h-32 md:w-32">
-                <div className="group flex h-full w-full items-center justify-center rounded-xl bg-light-100 shadow-md shadow-neutral-300 dark:bg-dark-100 dark:shadow-neutral-900">
+                <div className="group flex h-full w-full cursor-default items-center justify-center rounded-xl bg-light-100 shadow-md shadow-neutral-300 dark:bg-dark-100 dark:shadow-neutral-900">
                   <div className="flex flex-col items-center justify-center gap-2">
                     <div className="relative flex justify-center">
                       {item.icon}

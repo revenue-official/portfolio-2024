@@ -2,9 +2,11 @@ import {
   HomeDefault,
   UserRound,
   CodeXml,
+  BriefcaseBusiness,
 } from "@/components/Icon/DefaultIcons";
 import SideLink from "./SideLink";
 import { useScrollStore } from "@/stores/useScrollStore";
+import ThemesToggle from "@/components/Elements/ThemesToggle";
 
 export default function SideOverview() {
   const { sectionRefs } = useScrollStore();
@@ -53,6 +55,20 @@ export default function SideOverview() {
           }
         />
       </SideLink>
+      <SideLink
+        className="w-fit font-quicksand md:w-full"
+        title="Services"
+        active={false}
+        sectionId="services"
+      >
+        <BriefcaseBusiness
+          className={
+            "h-8 w-8 flex-shrink-0 p-1 duration-200 md:ml-2 md:mr-4 md:h-5 md:w-5 md:p-0 md:text-indigo-500 " +
+            (sectionRefs.services?.isIntersecting ? "text-indigo-500" : "")
+          }
+        />
+      </SideLink>
+      <ThemesToggle />
     </div>
   );
 }

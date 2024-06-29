@@ -1,8 +1,9 @@
 "use client";
 
-import TypingAnimation from "@/components/Elements/TypingAnimation";
+import Link from "next/link";
 import Image from "next/image";
-import { useEffect } from "react";
+import TypingAnimation from "@/components/Elements/TypingAnimation";
+import { GitHub, Instagram, TikTok } from "@/components/Icon/DefaultIcons";
 
 export default function Introduction({ sectionRef }: { sectionRef: any }) {
   const phrases = [
@@ -12,15 +13,8 @@ export default function Introduction({ sectionRef }: { sectionRef: any }) {
     "Web Developer",
   ];
   const nonDeletableIndices = [0];
-
-  // useEffect(() => {
-  //   if (sectionRef.current) {
-  //     sectionRef.current.scrollIntoView({ behavior: "smooth" });
-  //   }
-  // }, [sectionRef]);
-
   return (
-    <section id="home" ref={sectionRef} className="min-h-screen w-full pb-20">
+    <section id="home" ref={sectionRef} className="min-h-screen w-full pb-14">
       <div className="flex h-full flex-col items-center justify-center">
         <div className="h-40 w-40">
           <Image
@@ -38,7 +32,7 @@ export default function Introduction({ sectionRef }: { sectionRef: any }) {
           delayAfterTyping={3000}
           delayAfterDeleting={3000}
           nonDeletableIndices={nonDeletableIndices}
-          className="pt-10 font-poppins text-lg font-bold text-black dark:text-white md:text-3xl"
+          className="pt-10 font-poppins text-lg font-bold text-zinc-800 dark:text-white md:text-4xl"
         />
         <div className="flex h-fit md:mb-4">
           <ul className="font-comfortaa flex list-inside list-disc gap-2 md:gap-4">
@@ -50,6 +44,17 @@ export default function Introduction({ sectionRef }: { sectionRef: any }) {
               Based in Indonesia
             </li>
           </ul>
+        </div>
+        <div className="mt-4 flex gap-4">
+          <Link target="_blank" href={"https://instagram.com"}>
+            <Instagram className="h-5 w-5 fill-zinc-800 dark:fill-white" />
+          </Link>
+          <Link target="_blank" href={"https://tiktok.com"}>
+            <TikTok className="h-5 w-5 fill-zinc-800 dark:fill-white" />
+          </Link>
+          <Link target="_blank" href={"https://github.com/revenue-official"}>
+            <GitHub className="h-5 w-5 fill-zinc-800 dark:fill-white" />
+          </Link>
         </div>
       </div>
       {/*<div className="mb-4 mt-8 flex h-fit">

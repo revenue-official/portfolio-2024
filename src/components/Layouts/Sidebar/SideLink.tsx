@@ -3,7 +3,7 @@
 import { useScrollStore } from "@/stores/useScrollStore";
 
 interface SideActiveProps {
-	children: React.ReactNode;
+	children?: React.ReactNode;
 	className?: string;
 	title?: string;
 	active?: boolean;
@@ -31,10 +31,10 @@ export default function SideActive({
 			{children}
 			<span
 				className={
-					"font-xs hidden font-poppins font-bold duration-300 md:block " +
+					"font-xs hidden font-poppins font-bold duration-200 md:block " +
 					(active
 						? "text-indigo-500"
-						: " text-zinc-600 group-hover:translate-x-1 dark:text-zinc-100")
+						: "text-zinc-600 delay-75 group-hover:pl-1 dark:text-zinc-100")
 				}
 			>
 				{title}
