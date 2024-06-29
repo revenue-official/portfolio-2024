@@ -9,10 +9,10 @@ export default function About({ sectionRef }: { sectionRef: any }) {
 	return (
 		<section id="about" ref={sectionRef} className="min-h-screen w-full">
 			<Title title="About" subtitle="Know about me">
-				<UserRound className="h-6 w-6" />
+				<UserRound className="h-6 w-6 md:h-7 md:w-7" />
 			</Title>
-			<div className="flex w-full gap-8">
-				<div className="h-1/2 w-1/2  rounded-3xl shadow-lg">
+			<div className="w-full gap-8 md:flex">
+				<div className="rounded-3xl shadow-lg  md:h-1/2 md:w-1/2">
 					<Image
 						src={
 							"https://plus.unsplash.com/premium_photo-1674777843203-da3ebb9fbca0?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -23,8 +23,8 @@ export default function About({ sectionRef }: { sectionRef: any }) {
 						className="h-full w-full rounded-3xl object-cover"
 					/>
 				</div>
-				<div className="w-full rounded-3xl bg-zinc-50 px-8 py-4 shadow-lg dark:bg-dark-100">
-					<h1 className="h-10 w-full text-nowrap font-poppins text-3xl font-bold text-zinc-800 dark:text-zinc-200">
+				<div className="h-fit w-full rounded-3xl bg-zinc-50 px-8 py-4 shadow-lg dark:bg-dark-100">
+					<h1 className="h-10 w-full text-nowrap font-poppins text-base font-bold text-zinc-800 dark:text-zinc-200 md:text-3xl">
 						Hi, I am a full-stack developer.
 					</h1>
 					<span className="font-poppins text-xs text-zinc-500">

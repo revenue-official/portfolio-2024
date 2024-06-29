@@ -9,7 +9,7 @@ export default function Skills({ sectionRef }: { sectionRef: any }) {
   return (
     <section id="skill" ref={sectionRef} className="min-h-screen w-full">
       <Title title="Skills" subtitle="My technical skills">
-        <CodeXml className="h-6 w-6" />
+        <CodeXml className="h-5 w-5 md:h-7 md:w-7" />
       </Title>
       {/* skills container  */}
       <div className="flex justify-center pb-10 pt-5 md:px-8">
