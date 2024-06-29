@@ -49,7 +49,7 @@ export default function Sidebar() {
 
   return (
     <aside
-      className={`absolute z-10 h-screen pr-5 md:relative ${isOpen ? "left-0" : "-left-16"} ${firstOpenDuration}`}
+      className={`absolute z-50 h-screen pr-5 md:relative ${isOpen ? "left-0" : "-left-16"} ${firstOpenDuration}`}
     >
       <div className="flex h-full w-16 flex-col justify-around bg-zinc-50 px-0 shadow-md shadow-neutral-300 duration-300 dark:bg-dark-100 dark:shadow-neutral-800 md:w-72 md:px-4">
         {/* sidebar toggle  */}
