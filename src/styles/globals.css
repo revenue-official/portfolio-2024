@@ -71,3 +71,22 @@
 .hidden-scrollbar::-webkit-scrollbar {
   display: none; /* Menyembunyikan scrollbar */
 }
+
+.animated-to-right {
+  animation: to-right;
+  animation-duration: 6s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes to-right {
+  0% {
+    transform: translateX(-100px);
+  }
+  30% {
+    transform: translateX(100px);
+  }
+  100% {
+    transform: translateX(100px);
+  }
+}

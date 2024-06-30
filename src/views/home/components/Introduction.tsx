@@ -14,7 +14,7 @@ export default function Introduction({ sectionRef }: { sectionRef: any }) {
   ];
   const nonDeletableIndices = [0];
   return (
-    <section id="home" ref={sectionRef} className="min-h-screen w-full pb-14">
+    <section id="home" ref={sectionRef} className="min-h-screen w-full">
       <div className="flex h-full flex-col items-center justify-center">
         <div className="h-40 w-40">
           <Image

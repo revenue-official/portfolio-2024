@@ -1,11 +1,14 @@
 "use client";
 
-import About from "./About";
-import Skills from "./Skills";
+import dynamic from "next/dynamic";
 import Introduction from "./Introduction";
 import { useEffect, useRef } from "react";
 import { useInView } from "react-intersection-observer";
 import { useScrollStore } from "@/stores/useScrollStore";
+
+//dynamic importteds
+const About = dynamic(() => import("./About"));
+const Skills = dynamic(() => import("./Skills"));
 
 export default function Home() {
   const { setSectionRef } = useScrollStore();
