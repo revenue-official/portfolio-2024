@@ -14,8 +14,8 @@ export default function About({ sectionRef }: { sectionRef: any }) {
 			<div className="w-full gap-8 md:flex">
 				<div className="group relative mx-auto h-60 w-60 overflow-hidden rounded-3xl shadow-lg md:h-1/2 md:w-1/2">
 					{/*// badge */}
-					<div className="absolute -left-24 top-3 z-10 flex w-60 -rotate-45 cursor-default items-center justify-center overflow-auto bg-gradient-to-b from-indigo-600 to-indigo-500 shadow-md md:-left-24 md:top-3">
-						<span className="text-nowrap py-0.5 font-poppins text-base font-bold text-white md:text-sm">
+					<div className="absolute -left-24 top-3 z-10 flex w-60 -rotate-45 cursor-default items-center justify-center overflow-auto bg-gradient-to-b from-indigo-600 to-indigo-500 shadow-md md:-left-20 md:top-4">
+						<span className="text-nowrap py-0.5 font-poppins text-base font-bold text-white">
 							Profile
 						</span>
 						<div className="animated-to-right absolute z-10 h-16 w-6 bg-gradient-to-r from-transparent via-white to-transparent opacity-60"></div>
@@ -32,7 +32,7 @@ export default function About({ sectionRef }: { sectionRef: any }) {
 				</div>
 				<div className="min-h-20 w-full rounded-3xl px-8 pt-6 shadow-md md:bg-light-100 md:dark:bg-dark-100">
 					<h2 className="w-full text-nowrap text-center font-poppins text-lg font-bold text-zinc-900 dark:text-zinc-100 md:h-10 md:text-2xl">
-						Hi, I am Teguh Ersyarudin
+						Hi, I am Teguh
 					</h2>
 					<div className="flex h-full w-full flex-col">
 						<p className="w-full pt-4 text-center text-sm text-zinc-600 dark:text-zinc-400">
@@ -41,6 +41,11 @@ export default function About({ sectionRef }: { sectionRef: any }) {
 							molestias corrupti, error, doloremque officiis dignissimos nobis
 							voluptate laudantium minus dolore harum fuga et! Lorem ipsum dolor
 							sit, amet consectetur adipisicing.
+						</p>
+						<p className="w-full pt-4 text-center text-sm text-zinc-600 dark:text-zinc-400">
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde,
+							quasi. Voluptatum, optio! Odit voluptatum, excepturi molestiae
+							molestias corrupti.
 						</p>
 					</div>
 				</div>
