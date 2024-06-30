@@ -18,7 +18,7 @@ export default function About({ sectionRef }: { sectionRef: any }) {
 						<span className="text-nowrap py-0.5 font-poppins text-base font-bold text-white md:text-sm">
 							Profile
 						</span>
-						<div className="animated-to-right absolute -top-10 left-24 z-10 h-16 w-6 bg-gradient-to-r from-transparent via-white to-transparent opacity-60"></div>
+						<div className="animated-to-right absolute z-10 h-16 w-6 bg-gradient-to-r from-transparent via-white to-transparent opacity-60"></div>
 					</div>
 					<Image
 						src={
@@ -45,7 +45,7 @@ export default function About({ sectionRef }: { sectionRef: any }) {
 					</div>
 				</div>
 			</div>
-			<div className="flex min-h-20 w-full justify-around px-4 py-10">
+			<div className="flex min-h-20 w-full justify-around px-4 py-14">
 				<div className="flex min-h-10 w-10 flex-col items-center text-center">
 					<h2 className="font-roboto text-2xl font-bold md:text-3xl">02+</h2>
 					<span className="flex text-center text-xs text-zinc-500 md:text-sm">
