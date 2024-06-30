@@ -32,7 +32,7 @@ export default function Introduction({ sectionRef }: { sectionRef: any }) {
           delayAfterTyping={3000}
           delayAfterDeleting={3000}
           nonDeletableIndices={nonDeletableIndices}
-          className="pt-10 font-poppins text-lg font-bold text-zinc-800 dark:text-white md:text-4xl"
+          className="text-nowrap pt-10 font-poppins text-lg font-bold text-zinc-800 dark:text-white md:text-4xl"
         />
         <div className="flex h-fit md:mb-4">
           <ul className="font-comfortaa flex list-inside list-disc gap-2 md:gap-4">

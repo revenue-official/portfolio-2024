@@ -14,7 +14,7 @@ export default function Skills({ sectionRef }: { sectionRef: any }) {
       {/* skills container  */}
       <div className="flex justify-center pb-10 pt-5 md:px-8">
         <div className="mx-auto min-w-full">
-          <div className="grid grid-cols-4 md:grid-cols-6">
+          <div className="grid grid-cols-4 px-4 md:grid-cols-6">
             {IconList.map((item, index) => (
               <div key={index} className="h-24 w-24 p-4 md:h-32 md:w-32">
                 <div className="group flex h-full w-full cursor-default items-center justify-center rounded-xl bg-light-100 shadow-md shadow-neutral-300 dark:bg-dark-100 dark:shadow-neutral-900">

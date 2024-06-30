@@ -8,7 +8,7 @@ interface TitleProps {
 
 export default function Title({ title, subtitle, children }: TitleProps) {
   return (
-    <div className="my-4 flex w-full flex-col items-center">
+    <div className="my-8 flex w-full flex-col items-center">
       <div className="inline-flex items-center gap-2 text-neutral-900 dark:text-neutral-100">
         {children}
         <span className="font-poppins text-xl font-bold md:text-2xl">
