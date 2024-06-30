@@ -9,6 +9,7 @@ import { useScrollStore } from "@/stores/useScrollStore";
 //dynamic importteds
 const About = dynamic(() => import("./About"));
 const Skills = dynamic(() => import("./Skills"));
+const Services = dynamic(() => import("./Services"));
 
 export default function Home() {
   const { setSectionRef } = useScrollStore();
@@ -35,17 +36,25 @@ export default function Home() {
     entry: skillEntry,
   } = useInView(defaultOptions);
 
+  const {
+    ref: serviceInViewRef,
+    inView: serviceInView,
+    entry: serviceEntry,
+  } = useInView(defaultOptions);
+
   useEffect(() => {
     setSectionRef("home", introEntry);
     setSectionRef("about", aboutEntry);
     setSectionRef("skill", skillEntry);
-  }, [introEntry, aboutEntry, skillEntry, setSectionRef]);
+    setSectionRef("service", serviceEntry);
+  }, [introEntry, aboutEntry, skillEntry, serviceEntry, setSectionRef]);
 
   return (
     <>
       <Introduction sectionRef={introInViewRef} />
       <About sectionRef={aboutInViewRef} />
       <Skills sectionRef={skillInViewRef} />
+      <Services sectionRef={serviceInViewRef} />
     </>
   );
 }

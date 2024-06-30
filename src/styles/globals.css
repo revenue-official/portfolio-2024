@@ -74,7 +74,7 @@
 
 .animated-to-right {
   animation: to-right;
-  animation-duration: 6s;
+  animation-duration: 5s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
 }

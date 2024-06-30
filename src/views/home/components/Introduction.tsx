@@ -57,15 +57,6 @@ export default function Introduction({ sectionRef }: { sectionRef: any }) {
           </Link>
         </div>
       </div>
-      {/*<div className="mb-4 mt-8 flex h-fit">
-        <span className="font-quicksand font-medium leading-8 text-neutral-800 dark:text-neutral-200">
-          An experienced web development junior with fullstack skills. I am
-          quite proficient in using Laravel and Nextjs technology. I have
-          knowledge in PHP and Typescript to develop web application
-          functionality. Im excited to contribute to the team to build
-          efficient, responsive, and visually appealing web applications.
-        </span>
-      </div>*/}
     </section>
   );
 }

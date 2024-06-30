@@ -58,13 +58,13 @@ export default function SideOverview() {
       <SideLink
         className="w-fit font-quicksand md:w-full"
         title="Services"
-        active={false}
-        sectionId="services"
+        active={sectionRefs.service?.isIntersecting}
+        sectionId="service"
       >
         <BriefcaseBusiness
           className={
             "h-8 w-8 flex-shrink-0 p-1 duration-200 md:ml-2 md:mr-4 md:h-5 md:w-5 md:p-0 md:text-indigo-500 " +
-            (sectionRefs.services?.isIntersecting ? "text-indigo-500" : "")
+            (sectionRefs.service?.isIntersecting ? "text-indigo-500" : "")
           }
         />
       </SideLink>
