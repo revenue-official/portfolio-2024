@@ -9,7 +9,7 @@ export default function About({ sectionRef }: { sectionRef: any }) {
 
 	return (
 		<section id="about" ref={sectionRef} className="min-h-max w-full">
-			<Title title="About" subtitle="Know about me">
+			<Title title="About Me" subtitle="Know about me">
 				<UserRound className="h-6 w-6 md:h-7 md:w-7" />
 			</Title>
 			<div className="w-full gap-8 md:flex">

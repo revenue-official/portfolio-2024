@@ -46,7 +46,7 @@ export default function Introduction({ sectionRef }: { sectionRef: any }) {
           </ul>
         </div>
         <div className="mt-4 flex gap-4">
-          <Link target="_blank" href={"https://instagram.com"}>
+          <Link target="_blank" href={"https://www.instagram.com/revenue0x/"}>
             <Instagram className="h-5 w-5 fill-zinc-800 dark:fill-white" />
           </Link>
           <Link target="_blank" href={"https://tiktok.com"}>

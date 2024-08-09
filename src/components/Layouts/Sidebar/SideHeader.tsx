@@ -13,12 +13,12 @@ export default function SideHeader() {
   return (
     <div className="mt-2 flex h-14 cursor-default items-center justify-center">
       <Image
-        src={baseUrl + "/images/RevCodes.png"}
+        src={baseUrl + "/images/rc-logo-nobg.png"}
         alt="TailwindCSS"
         width={100}
         height={100}
         priority
-        className="h-6 w-6"
+        className="h-9 w-9 rounded-full border-2 border-indigo-500 p-1"
       />
       <div className="hidden flex-col justify-center pt-1 md:flex">
         <span className="ml-2 h-6 text-nowrap font-poppins text-lg font-bold text-black dark:text-white">

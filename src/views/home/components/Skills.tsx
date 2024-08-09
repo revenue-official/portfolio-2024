@@ -35,7 +35,7 @@ export default function Skills({ sectionRef }: { sectionRef: any }) {
 
   return (
     <section id="skill" ref={sectionRef} className="min-h-screen w-full">
-      <Title title="Skills" subtitle="My technical skills">
+      <Title title="My Skills" subtitle="My technical skills">
         <CodeXml className="h-5 w-5 md:h-7 md:w-7" />
       </Title>
       {/* skills container  */}
