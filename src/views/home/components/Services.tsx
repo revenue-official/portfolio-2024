@@ -12,7 +12,7 @@ export default function Services({ sectionRef }: any) {
 				<BriefcaseBusiness className="h-5 w-5 md:h-7 md:w-7" />
 			</Title>
 
-			<div className="flex flex-col justify-around gap-4 md:flex-row md:items-start md:px-4">
+			<div className="flex flex-col justify-around gap-4 md:flex-row md:items-start px-4">
 				<div className="h-60 w-full rounded-xl bg-zinc-50 p-4 shadow-md dark:bg-zinc-900">
 					<Image
 						src={
