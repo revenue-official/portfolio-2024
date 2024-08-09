@@ -6,7 +6,6 @@ import {
 } from "@/components/Icon/DefaultIcons";
 import SideLink from "./SideLink";
 import { useScrollStore } from "@/stores/useScrollStore";
-import ThemesToggle from "@/components/Elements/ThemesToggle";
 
 export default function SideOverview() {
   const { sectionRefs } = useScrollStore();
@@ -68,7 +67,6 @@ export default function SideOverview() {
           }
         />
       </SideLink>
-      <ThemesToggle />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import { Sun, Moon } from "@/components/Icon/DefaultIcons";
-import { useEffect, useState, ReactNode, useContext } from "react";
+import { useEffect, useState, ReactNode } from "react";
 import { useTheme } from "next-themes";
 import useSidebarStore from "@/stores/useSidebarOpened";
 
