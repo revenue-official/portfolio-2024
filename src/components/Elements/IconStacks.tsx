@@ -11,6 +11,12 @@ import {
   SiTailwindcss,
   SiSupabase,
   SiGithub,
+  SiReacthookform,
+  SiZod,
+  SiPostgresql,
+  SiShadcnui,
+  SiGit,
+  SiLinux,
 } from "@icons-pack/react-simple-icons";
 
 interface IconListProps {
@@ -154,5 +160,72 @@ export const IconList: IconListProps[] = [
     title: "GitHub",
     description:
       "Collaboration platform for hosting and managing code repositories.",
+  },
+  {
+    icon: (
+      <SiReacthookform
+        className="h-8 w-8 duration-200 group-hover:scale-110"
+        color="#9AE6B4"
+        title=""
+      />
+    ),
+    title: "React Hook F...",
+    description: "Form validation and input handling for React applications.",
+  },
+  {
+    icon: (
+      <SiZod
+        className="h-8 w-8 duration-200 group-hover:scale-110"
+        color="#3E67B1"
+        title=""
+      />
+    ),
+    title: "Zod",
+    description: "Schema validation for TypeScript applications.",
+  },
+  {
+    icon: (
+      <SiPostgresql
+        className="h-8 w-8 duration-200 group-hover:scale-110"
+        color="#4169E1"
+        title=""
+      />
+    ),
+    title: "PostgreSQL",
+    description:
+      "Object-relational database management system for storing and managing data.",
+  },
+  {
+    icon: (
+      <SiShadcnui
+        className="h-8 w-8 rounded bg-black p-1.5 duration-200 group-hover:scale-110"
+        color="#ffffff"
+        title=""
+      />
+    ),
+    title: "Shadcn UI",
+    description: "React UI components for web development.",
+  },
+  {
+    icon: (
+      <SiGit
+        className="h-8 w-8 duration-200 group-hover:scale-110"
+        color="#F05032"
+        title=""
+      />
+    ),
+    title: "Git",
+    description: "Version control for web development.",
+  },
+  {
+    icon: (
+      <SiLinux
+        className="h-8 w-8 rounded bg-yellow-300 p-0.5 duration-200 group-hover:scale-110"
+        color="#000000"
+        title=""
+      />
+    ),
+    title: "Linux",
+    description: "Operating system for web development.",
   },
 ];

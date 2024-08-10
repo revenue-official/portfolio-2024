@@ -63,7 +63,7 @@ export default function Skills({ sectionRef }: { sectionRef: any }) {
                         {item.description}
                       </span>
                     </div>
-                    <span className="text-[10px] font-semibold text-neutral-800 dark:text-neutral-200 md:text-xs">
+                    <span className="text-[10px] font-semibold text-neutral-800 dark:text-neutral-200 md:text-xs text-nowrap truncate">
                       {item.title}
                     </span>
                   </div>

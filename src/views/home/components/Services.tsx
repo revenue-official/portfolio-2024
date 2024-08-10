@@ -23,9 +23,9 @@ export default function Services({ sectionRef }: any) {
 						height={200}
 						className="mx-auto h-20 w-20 object-cover"
 					/>
-					<h2 className="h-10 text-center text-xl font-bold">Web App</h2>
+					<h2 className="h-10 text-center text-xl font-bold">Web Apps</h2>
 					<span className="flex text-center font-poppins text-zinc-600 dark:text-zinc-400">
-						MEAN framework (MongoDB ExpressJS Angular NodeJS) as the basis for
+						MERN framework (MongoDB ExpressJS React NodeJS) as the basis for
 						creating web apps
 					</span>
 				</div>
