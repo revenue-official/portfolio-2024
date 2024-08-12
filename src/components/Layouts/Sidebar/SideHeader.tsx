@@ -22,10 +22,10 @@ export default function SideHeader() {
       />
       <div className="hidden flex-col justify-center pt-1 md:flex">
         <span className="ml-2 h-6 text-nowrap font-poppins text-lg font-bold text-black dark:text-white">
-          RevCodes.
+          revXcode
         </span>
         <span className="ml-2 h-5 text-nowrap font-mono text-[10px] font-bold text-neutral-400">
-          Web Development
+          Web Developer
         </span>
       </div>
     </div>
