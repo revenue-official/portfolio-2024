@@ -23,6 +23,7 @@ export default function Introduction({ sectionRef }: { sectionRef: any }) {
             width={200}
             height={200}
             className="h-full w-full rounded-full object-cover"
+            priority
           />
         </div>
         <TypingAnimation

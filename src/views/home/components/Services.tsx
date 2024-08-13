@@ -13,9 +13,7 @@ export default function Services({ sectionRef }: any) {
 				<div className="w-full h-60 group">
 					<div className="h-full rounded-xl bg-zinc-50 p-4 shadow-md dark:bg-zinc-900 group-hover:-translate-y-2 duration-300 delay-75 ease-in-out cursor-default">
 						<Image
-							src={
-								"http://localhost:3000/images/laptop-icon.png"
-							}
+							src="/images/laptop-icon.png"
 							alt="web"
 							width={200}
 							height={200}
@@ -32,7 +30,7 @@ export default function Services({ sectionRef }: any) {
 				<div className="w-full h-60 group">
 					<div className="h-full rounded-xl bg-zinc-50 p-4 shadow-md dark:bg-zinc-900 group-hover:-translate-y-2 duration-300 delay-75 ease-in-out cursor-default">
 						<Image
-							src="http://localhost:3000/images/browser-dev-icon.png"
+							src="/images/browser-dev-icon.png"
 							alt="web"
 							width={200}
 							height={200}
